@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ALL" monitorInterval="30" packages="">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n %ex"/>
+        </Console>
+        <File name="server" fileName="logs/server.log">
+            <PatternLayout>
+                <Pattern>%d{DEFAULT} [%t] %X{request} %-5level %logger{36} - %msg%n %ex</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="schemes" fileName="logs/schemes.log">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %X{request} %-5level %logger{36} - %msg%n %ex</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="parser" fileName="logs/parser.log">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %X{request} %-5level %logger{36} - %msg%n %ex</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="glassfish" fileName="logs/glassfish.log">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %X{request} %-5level %logger{36} - %msg%n %ex</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="server" level="ALL">
+            <AppenderRef ref="server"/>
+        </Logger>
+        <Logger name="parser" level="ALL">
+            <AppenderRef ref="parser"/>
+        </Logger>
+        <Logger name="branching" level="ALL">
+            <AppenderRef ref="schemes"/>
+        </Logger>
+        <Logger name="org.glassfish" level="ALL">
+            <AppenderRef ref="glassfish"/>
+        </Logger>
+        <Root level="all">
+            <AppenderRef ref="server"/>
+        </Root>
+    </Loggers>
+</Configuration>
