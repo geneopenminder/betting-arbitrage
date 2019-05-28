@@ -7,4 +7,6 @@ It contains two main parts:
  - rest-api for providing betting arbitrage
  
  Requires Debian 7.0, Java 8 SE, RabbitMQ, PostgreSQL, PantomJS, chromium headless browser with xvfb.
+ 
+ Created in 2015.
 
